@@ -1,10 +1,10 @@
-const User = require('../models/user');
-const Friends = require('../models/friendsModel');
-const Posts = require('../models/postModel');
-const Comment = require('../models/commentModel');
-const Notification = require('../models/notificationModel');
-const Event = require('../models/eventModel');
-const EventRequest = require('../models/eventRequestModel');
+const User = require("../models/userModel");
+const Friends = require("../models/friendsModel");
+const Posts = require("../models/postModel");
+const Comment = require("../models/commentModel");
+const Notification = require("../models/notificationModel");
+const Event = require("../models/eventsModel");
+const EventRequest = require("../models/eventRequestModel");
 
 exports.RelationShip = () => {
   Posts.belongsTo(User, {
@@ -36,8 +36,8 @@ exports.RelationShip = () => {
   User.hasMany(EventRequest, { foreignKey: 'UserId' });
   EventRequest.belongsTo(User, {
     constraint: true,
-    onDelete: 'CASCADE',
-    as: 'receptor',
+    onDelete: "CASCADE",
+    as: "receptor",
   });
   User.hasMany(EventRequest, { foreignKey: 'ReceptorId' });
 

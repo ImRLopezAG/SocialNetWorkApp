@@ -1,7 +1,7 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../server/database');
+const Sequelize = require("sequelize");
+const sequelize = require("../server/database");
 
-exports.Posts = sequelize.define('post', {
+const Posts = sequelize.define("post", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -17,3 +17,5 @@ exports.Posts = sequelize.define('post', {
     allowNull: true,
   },
 });
+
+module.exports = Posts;
