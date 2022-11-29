@@ -1,19 +1,15 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../server/database');
 
-exports.Notification = sequelize.define('notification', {
+exports.Comment = sequelize.define('comment', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
   },
-  TypeOfNotification: {
+  Content: {
     type: Sequelize.STRING,
-    allowNull: false,
-  },
-  IsRead: {
-    type: Sequelize.BOOLEAN,
     allowNull: false,
   },
 });
