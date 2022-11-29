@@ -10,46 +10,46 @@ exports.RelationShip = () => {
   Posts.belongsTo(User, {
     constraint: true,
     onDelete: 'CASCADE',
-    as: 'author',
+    as: 'User',
   });
-  User.hasMany(Posts, { foreignKey: 'authorId' });
+  User.hasMany(Posts, { foreignKey: 'UserId' });
 
   Comment.belongsTo(User, {
     constraint: true,
     onDelete: 'CASCADE',
-    as: 'author',
+    as: 'User',
   });
-  User.hasMany(Comment, { foreignKey: 'authorId' });
+  User.hasMany(Comment, { foreignKey: 'UserId' });
 
   Event.belongsTo(User, {
     constraint: true,
     onDelete: 'CASCADE',
-    as: 'author',
+    as: 'User',
   });
-  User.hasMany(Event, { foreignKey: 'authorId' });
+  User.hasMany(Event, { foreignKey: 'UserId' });
 
   EventRequest.belongsTo(User, {
     constraint: true,
     onDelete: 'CASCADE',
-    as: 'author',
+    as: 'User',
   });
-  User.hasMany(EventRequest, { foreignKey: 'authorId' });
+  User.hasMany(EventRequest, { foreignKey: 'UserId' });
   EventRequest.belongsTo(User, {
     constraint: true,
     onDelete: 'CASCADE',
     as: 'receptor',
   });
-  User.hasMany(EventRequest, { foreignKey: 'receptorId' });
+  User.hasMany(EventRequest, { foreignKey: 'ReceptorId' });
 
   Comment.belongsTo(Posts, { constraint: true, onDelete: 'CASCADE' });
-  Posts.hasMany(Comment, { foreignKey: 'postId' });
+  Posts.hasMany(Comment, { foreignKey: 'PostId' });
 
   Comment.belongsTo(Comment, { constraint: true, onDelete: 'CASCADE' });
-  Comment.hasMany(Comment, { foreignKey: 'commentId' });
+  Comment.hasMany(Comment, { foreignKey: 'CommentId' });
 
   EventRequest.belongsTo(Event, { constraint: true, onDelete: 'CASCADE' });
-  Event.hasMany(EventRequest, { foreignKey: 'eventId' });
+  Event.hasMany(EventRequest, { foreignKey: 'EventId' });
 
   Notification.belongsTo(Friends, { constraint: true, onDelete: 'CASCADE' });
-  Friends.hasOne(Notification, { foreignKey: 'friendId' });
+  Friends.hasOne(Notification, { foreignKey: 'FriendId' });
 };
